@@ -44,7 +44,8 @@ RUN touch $COPY_REFERENCE_FILE_LOG && chown jenkins.jenkins $COPY_REFERENCE_FILE
 USER jenkins
 
 ADD ./jenkins.sh /usr/local/bin/jenkins.sh
-ENTRYPOINT ["/usr/local/bin/jenkins.sh"]
+CMD ["/bin/bash", "/usr/local/bin/jenkins.sh"]
+#ENTRYPOINT ["/usr/local/bin/jenkins.sh"]
 
 # from a derived Dockerfile, can use `RUN plugin.sh active.txt` to setup /usr/share/jenkins/ref/plugins from a support bundle
 ADD ./plugins.sh /usr/local/bin/plugins.sh
