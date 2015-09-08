@@ -1,7 +1,7 @@
 #Updated to local centralmw environment base rhel7/jdk 1.7 image
 FROM centralmw/jdk1.7-rhel7
 
-RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
+RUN yum update && yum install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
 
