@@ -1,4 +1,4 @@
-#FROM rhel7.0
+FROM rhel7.0 
 #MAINTAINER Greg Hoelzer ghoelzer@redhat.com
 
 # Install packages necessary to run EAP
