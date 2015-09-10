@@ -1,5 +1,5 @@
 #Updated to local centralmw environment base rhel7/jdk 1.7 image
-FROM jdk17-rhel7-base
+FROM base-images/jdk17-rhel7-base:latest
 
 RUN yum update -y && yum install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
 
