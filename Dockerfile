@@ -1,7 +1,14 @@
-#Updated to local centralmw environment base rhel7/jdk 1.7 image
-FROM base-images/jdk17-rhel7-base:latest
+#Merged in base jdk1.7-rhel7.0 into single image, until base-images can be refereneced from local OSEv3 repo
+FROM rhel7.0
+MAINTAINER Greg Hoelzer ghoelzer@redhat.com
 
-RUN yum update -y && yum install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
+# Install packages necessary to run Java Apps
+RUN yum --disablerepo rhel-sap-hana-for-rhel-7-server-rpms -y install git saxon unzip java-1.7.0-openjdk-devel.x86_64 && yum clean all
+
+# Set JAVA_HOME
+ENV JAVA_HOME /usr/lib/jvm/jre-1.7.0
+
+RUN yum update -y && yum install -y wget git curl zip && yum clean all && rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
 
