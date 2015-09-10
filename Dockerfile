@@ -2,12 +2,12 @@ FROM rhel7.0
 #MAINTAINER Greg Hoelzer ghoelzer@redhat.com
 
 # Install packages necessary to run EAP
-RUN yum --disablerepo rhel-sap-hana-for-rhel-7-server-rpms -y install git saxon unzip java-1.7.0-openjdk-devel.x86_64 && yum clean all
+RUN yum --disablerepo rhel-sap-hana-for-rhel-7-server-rpms -y install git saxon unzip wget zip java-1.7.0-openjdk-devel.x86_64 && yum clean all
 
 # Set JAVA_HOME
 ENV JAVA_HOME /usr/lib/jvm/jre-1.7.0
 
-RUN yum update -y && yum install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
 
