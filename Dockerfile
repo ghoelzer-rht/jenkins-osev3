@@ -7,7 +7,7 @@ RUN yum --disablerepo rhel-sap-hana-for-rhel-7-server-rpms -y install git saxon 
 # Set JAVA_HOME
 ENV JAVA_HOME /usr/lib/jvm/jre-1.7.0
 
-#RUN yum update -y && yum install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
+RUN yum update -y && yum install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
 
