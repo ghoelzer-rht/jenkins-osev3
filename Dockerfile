@@ -1,6 +1,4 @@
-#Merged in base jdk1.7-rhel7.0 into single image, until base-images can be refereneced from local OSEv3 repo
 FROM rhel7.0
-MAINTAINER Greg Hoelzer ghoelzer@redhat.com
 
 # Install packages necessary to run Java Apps
 RUN yum --disablerepo rhel-sap-hana-for-rhel-7-server-rpms -y install git saxon unzip java-1.7.0-openjdk-devel.x86_64 && yum clean all
